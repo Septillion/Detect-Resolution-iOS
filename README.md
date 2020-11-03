@@ -10,7 +10,7 @@ Clone this repository `git clone https://github.com/Septillion/Detect-Resolution
 
 Open the Xcode Project, connect your iOS device, and hit run. (You need to log in to your Apple ID but doesn't necessarily have to be registered in the developer program).
 
-I'll try to submit this app to the App Store, but given how little function it offers, I doubt it'll ever make it past the review process. Fingers crossed.
+I won't try to submit this app to the App Store given how little function it offers, I doubt it'll ever make it past the review process.
 
 ## A few points worth mentioning
 - Methods of sideloading apps on iOS devices aren't as easy, so currently I'm not providing an IPA file. I'll reconsider when the demand is high enough.
