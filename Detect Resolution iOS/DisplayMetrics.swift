@@ -85,5 +85,46 @@ func AquireDisplayMetrics() -> DisplayMetrics {
     
     dm.refreshRate = String(UIScreen.main.maximumFramesPerSecond)
     
+
+    let refr = enumRefreshRate()
+    refr.createDisplayLink()
+    
     return dm
+}
+
+class enumRefreshRate {
+    
+    var lastRefreshRate:Double = 0.0
+    var currentRefreshRate:Double = 0.0
+    
+    
+    //--
+    // try emumerating display refreshrates.
+    
+    
+    func createDisplayLink(){
+        let displaylink = CADisplayLink(target: self, selector: #selector(step))
+        displaylink.add(to: .current, forMode: .default)
+    }
+    
+    @objc func step(displaylink: CADisplayLink){
+    
+        for i in 1...120{
+            displaylink.preferredFramesPerSecond = i
+            currentRefreshRate = 1 / (displaylink.targetTimestamp - displaylink.timestamp)
+            if currentRefreshRate != lastRefreshRate{
+                lastRefreshRate = currentRefreshRate
+                
+                print(round(currentRefreshRate))
+            }
+            
+        }
+        
+        
+    }
+    
+    //--
+    
+    
+    
 }

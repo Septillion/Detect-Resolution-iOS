@@ -8,6 +8,7 @@
 import SwiftUI
 
 struct ContentView: View {
+    @State var progress:Double = 0
     var body: some View {
         
         let thisDM = AquireDisplayMetrics()
@@ -68,12 +69,15 @@ struct ContentView: View {
                 Text(thisDM.refreshRate)
                     .font(.title)
             }
+            
         }
     }
 }
 
 struct ContentView_Previews: PreviewProvider {
     static var previews: some View {
-        ContentView()
+        Group {
+            ContentView()
+        }
     }
 }
